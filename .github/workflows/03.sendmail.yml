@@ -1,11 +1,15 @@
-name: send Mail
-on: push
+name: Send Mail
+on: 
+  push
 
 jobs:
   mail:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
       - name: Print Hello World
         run: echo "This is the first send mail action in GitHub"
 
@@ -21,5 +25,4 @@ jobs:
           to: "mrcreations773@gmail.com"
           subject: "First mail using GitHub Action"
           body: "Hi, this is Meganraj."
-          content_type: text/plain
           attachments: README.md

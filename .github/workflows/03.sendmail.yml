@@ -11,7 +11,7 @@ jobs:
 
       - name: Sending a mail
         if: always()
-        uses: devellany/send-mailer@v1.0.2
+        uses: rtCamp/action-sendmail@v1
         with:
           host: smtp.gmail.com  # Correct Gmail SMTP host
           port: 465
@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           sender: meganraj
           from: ${{ secrets.MAIL_ADDRESS }}
-          to: devellay@dico.me  # Change this to the recipient's email
+          to: mrcreations773@gmail.com  # Change this to the recipient's email
           subject: "First mail using GitHub Action"
           body: "Hi, this is Meganraj."
           contentType: text/plain

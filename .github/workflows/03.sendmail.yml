@@ -1,28 +1,23 @@
-name: Send Mail
-on: 
-  push
+name: send Mail
+on: push
 
 jobs:
   mail:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+    - name: Print Hello World
+      run: echo "This is the first send mail action in GitHub"
 
-      - name: Print Hello World
-        run: echo "This is the first send mail action in GitHub"
-
-      - name: Send Email
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.ACCOUNT }}
-          password: ${{ secrets.MAIL_PASSWORD }}
-          from: "meganrajmegan@gmail.com"
-          to: "mrcreations773@gmail.com"
-          subject: "First mail using GitHub Action"
-          body: "Hi, this is Meganraj."
-          attachments: README.md
+    - name: Sending a mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        secure: true
+        username: ${{ secrets.MAIL_USERNAME }}  # Set this as 'meganrajmegan@gmail.com'
+        password: ${{ secrets.MAIL_PASSWORD }}  # Set this as your Google App Password
+        from: Meganraj <meganrajmegan@gmail.com>
+        to: mrcreations773@gmail.com
+        subject: "First Mail Using GitHub Actions"
+        body: "Hi, this is Meganraj."

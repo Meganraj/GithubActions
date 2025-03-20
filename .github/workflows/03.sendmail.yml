@@ -1,0 +1,26 @@
+name: send Mail
+on: push
+
+jobs:
+  mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Hello World
+        run: echo "This is the first send mail action in GitHub"
+
+      - name: Sending a mail
+        if: always()
+        uses: devellany/send-mailer@v1.0.2
+        with:
+          host: smtp.gmail.com  # Correct Gmail SMTP host
+          port: 465
+          account: ${{ secrets.ACCOUNT }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          sender: meganraj
+          from: ${{ secrets.MAIL_ADDRESS }}
+          to: devellay@dico.me  # Change this to the recipient's email
+          subject: "First mail using GitHub Action"
+          body: "Hi, this is Meganraj."
+          contentType: text/plain
+          attachments: '[{"path":"README.md"}]'

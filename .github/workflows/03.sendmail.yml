@@ -9,18 +9,17 @@ jobs:
       - name: Print Hello World
         run: echo "This is the first send mail action in GitHub"
 
-      - name: Sending a mail
-        if: always()
+      - name: Send Email
         uses: dawidd6/action-send-mail@v3
         with:
-          host: smtp.gmail.com  # Correct Gmail SMTP host
-          port: 465
-          account: ${{ secrets.ACCOUNT }}
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.ACCOUNT }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          sender: meganraj
-          from: ${{ secrets.MAIL_ADDRESS }}
-          to: mrcreations773@gmail.com  # Change this to the recipient's email
+          from: "meganrajmegan@gmail.com"
+          to: "mrcreations773@gmail.com"
           subject: "First mail using GitHub Action"
           body: "Hi, this is Meganraj."
-          contentType: text/plain
-          attachments: '[{"path":"README.md"}]'
+          content_type: text/plain
+          attachments: README.md

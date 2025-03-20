@@ -11,7 +11,7 @@ jobs:
 
       - name: Sending a mail
         if: always()
-        uses: rtCamp/action-sendmail@v1
+        uses: dawidd6/action-send-mail@v3
         with:
           host: smtp.gmail.com  # Correct Gmail SMTP host
           port: 465

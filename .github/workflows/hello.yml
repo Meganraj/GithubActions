@@ -1,8 +1,9 @@
-name : hello
-on : push
-jobs :
-  hello :
+name: hello
+on: push
+jobs:
+  hello:
     runs-on: ubuntu-latest
-    steps :
+    steps:
       - name: Print Hello World
-        run : echo "Hello world"
+        shell: bash
+        run: echo "Hello world"

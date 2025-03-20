@@ -14,4 +14,4 @@ jobs:
           python-version: '3.12'  
 
       - name: Run a Python Script
-        run: python hello.py 
+        run: python 01.hello.py 
